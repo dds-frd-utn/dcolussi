@@ -205,7 +205,6 @@ public class Aplicacion {
 		p.showHeader("Todos los posts");
 			for( Entry<String, Post> data : systemPost.entrySet() ){
 				data.getValue().showNombre();
-				/*data.getValue().showComentarios();*/
 				data.getValue().showAutor();
 				data.getValue().showPuntos();
 				System.out.print("\n");

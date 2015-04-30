@@ -19,6 +19,7 @@ public class Help {
 					+"comment : Comenta un post con el usuario logeado\n"
 					+"punt    : Agrega una puntuacion al post\n"
 					+"delete  : Borra un post\n"
+					+"detail  : Muestra en detalle un post en particular\n"
 					+"show    : Muestra todos los posts del foro\n"
 					+"ustatus : Muestra informacion sobre el usuario logeado"
 					+"change  : Cambia de usuario\n"
