@@ -7,21 +7,25 @@ import views.Pantalla;
 public class Usuario {
 	
 		/*atributos de clase*/
-			String username;
-			String password;
-			String accion;
+			String username;			
 		/*fin atributos de clase*/
 	
-	/*instanciar usuario*/
+	/*instanciar usuario con login automatico*/
 	@SuppressWarnings("resource")
 	public Usuario(){
 		Pantalla p = new Pantalla();
 		p.showHeader("Pantalla de login");
 			Scanner read = new Scanner(System.in);
 			System.out.print("Nombre Usuario : ");
-			this.username = read.nextLine();
+			this.setUsename( read.nextLine() );
 		p.showFooter();
 		
+		this.showLoginStatus();
+	}
+	
+	/*Instanciar usuario con nombre automatico*/
+	public Usuario(String name){
+		this.setUsename( name );
 		this.showLoginStatus();
 	}
 	
@@ -34,6 +38,10 @@ public class Usuario {
 		
 	}
 	
+	public void setUsename(String name){
+		this.username = name;
+	}
+		
 	public void showLoginStatus(){
 		System.out.println(
 				"Login with : "

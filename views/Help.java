@@ -30,6 +30,11 @@ public class Help {
 		
 	}
 	
+	public static void showSystenInfo(){
+		Pantalla p = new Pantalla();
+			System.out.println("\nSystem Foro 1.0\nAuthor : Diego Colussi\nUTN-FRD\n");
+	}
+	
 	/*prueba de clase*/
 	public static void main(String[] args){
 		Help h = new Help();

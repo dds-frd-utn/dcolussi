@@ -17,15 +17,20 @@ import views.Pantalla;
 
 public class Aplicacion {
 	
-	/*Definicion de atributos globales que usa el sistema para hacer
-	 * basicamente todo. Esto es muy necesario*/
+	/*Definicion de atributos globales*/
+		
 		public static Map<String, Post> systemPost = new HashMap<String, Post>();
-		public static Usuario thisUsuario = new Usuario();
+		/*Recordar que el usuario se logea automaticamente al instanciarse. En este caso
+		 * por default se logea como Diego*/
+		public static Usuario thisUsuario = new Usuario("Diego");
+		
 	/*Fin de atributos globales globales*/
 		
 	/*Ejecucion del programa principal*/
 	public static void main(String[] args){
-				
+		
+		Help.showSystenInfo();
+		
 		while(true){
 			
 			/*permite a un usuario ingresar un comando por consola*/
@@ -186,7 +191,6 @@ public class Aplicacion {
 				/*Elegimos un Post de Label lista de post*/
 				Post pst = systemPost.get(name);
 					pst.showNombre();
-					pst.showTextPost();
 					pst.showComentarios();
 					pst.showPuntos();
 			p.showFooter();
