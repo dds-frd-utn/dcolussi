@@ -19,10 +19,8 @@ public class Aplicacion {
 	
 	/*Definicion de atributos globales que usa el sistema para hacer
 	 * basicamente todo. Esto es muy necesario*/
-	
 		public static Map<String, Post> systemPost = new HashMap<String, Post>();
 		public static Usuario thisUsuario = new Usuario();
-		
 	/*Fin de atributos globales globales*/
 		
 	/*Ejecucion del programa principal*/
@@ -70,6 +68,9 @@ public class Aplicacion {
 				break;
 			
 			case "ustatus": showUserStatus(thisUsuario);
+				break;
+			
+			case "detail": showPostDetail(systemPost);
 				break;
 				
 			case "delete": deletePost(thisUsuario,systemPost);
@@ -171,6 +172,32 @@ public class Aplicacion {
 		p.showFooter();
 	}
 	
+	/*Muestra detalles de un post en particular*/
+	@SuppressWarnings("resource")
+	public static void showPostDetail(Map<String, Post> systemPost){
+		Pantalla p = new Pantalla();
+		Scanner s = new Scanner(System.in);
+		System.out.print("Nombre del post : ");
+		String name = s.nextLine();
+		
+		try{
+			
+			p.showHeader("Detalle de post");
+				/*Elegimos un Post de Label lista de post*/
+				Post pst = systemPost.get(name);
+					pst.showNombre();
+					pst.showTextPost();
+					pst.showComentarios();
+					pst.showPuntos();
+			p.showFooter();
+		
+		}catch(Exception e){
+			
+			System.out.println("Hay algun error");
+			
+		}
+	}
+	
 	/*Muestra todos los post que hay en una coleccion map*/
 	public static void showAllPosts(Map<String, Post> systemPost){
 		Pantalla p = new Pantalla();
@@ -178,7 +205,7 @@ public class Aplicacion {
 		p.showHeader("Todos los posts");
 			for( Entry<String, Post> data : systemPost.entrySet() ){
 				data.getValue().showNombre();
-				data.getValue().showComentarios();
+				/*data.getValue().showComentarios();*/
 				data.getValue().showAutor();
 				data.getValue().showPuntos();
 				System.out.print("\n");
